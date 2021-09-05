@@ -1,5 +1,5 @@
 use actix_web::{get, web, Responder};
-use webbrowser;
+use webbrowser::open;
 
 #[get("/url/{protocol}//{url}")]
 pub async fn protocol_url_link(
@@ -19,7 +19,7 @@ pub async fn no_protocol_link(web::Path(url): web::Path<String>) -> impl Respond
 }
 
 fn open_url(url: String) -> impl Responder {
-    match webbrowser::open(&url) {
+    match open(&url) {
         Ok(_) => format!("Successfully opened url {} on your computer.", url),
         Err(_) => format!("Failed to open url {} on your computer.", url),
     }

@@ -6,7 +6,7 @@ A rewrite of [Phonelink for Windows Forms](https://github.com/ahsan-a/PhoneLink)
 
 -   [x] Add link receiving
 -   [x] Add notification receiving
--   [ ] Add file receiving
+-   [x] Add file receiving
+-   [ ] Create options menu (in progress)
 -   [ ] Add password header
 -   [ ] Add power state controls
--   [ ] Create configurable options menu either through GUI or CLI

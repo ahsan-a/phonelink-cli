@@ -19,6 +19,7 @@ async fn main() -> std::io::Result<()> {
             .service(index)
             .service(routes::link_route)
             .service(routes::notif)
+            .service(routes::file_route)
     })
     .bind(":1234")?
     .bind(get_addr())?

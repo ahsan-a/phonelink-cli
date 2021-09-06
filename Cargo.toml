@@ -9,3 +9,7 @@ edition = "2018"
 actix-web = "3" # web server
 webbrowser = "0.5.5" # open links
 notify-rust = "4" # send notifs
+actix-multipart = "0.3"
+futures = "0.3"
+sanitize-filename = "0.3"
+preferences = "^1.1.0"

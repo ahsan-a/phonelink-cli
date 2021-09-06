@@ -17,10 +17,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(index)
-            // scuffed way of protocol with url, protocol and plain url
-            .service(routes::link::protocol_url_link)
-            .service(routes::link::protocol_link)
-            .service(routes::link::no_protocol_link)
+            .service(routes::link_route)
             .service(routes::notif)
     })
     .bind(":1234")?

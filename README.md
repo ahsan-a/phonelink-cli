@@ -16,7 +16,7 @@ A rewrite of [Phonelink for Windows Forms](https://github.com/ahsan-a/PhoneLink)
 
 ## Clients
 
-#### iOS
+### iOS
 
 iOS clients come in the form of shortcuts.
 
@@ -46,7 +46,7 @@ iOS clients come in the form of shortcuts.
 -   Method: `GET`
 -   Info: Your title should be in the `title` header, and body in the `body` header.
 
-### Notification
+### Power
 
 -   Path: `[IP]:[PORT]/power/[TYPE]`
 -   Method: `GET`

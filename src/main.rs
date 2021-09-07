@@ -1,13 +1,8 @@
 mod config;
 mod routes;
 
-use actix_web::{get, App, HttpServer, Responder};
-
+use actix_web::{get, middleware, App, HttpServer, Responder};
 use preferences::{Preferences, PreferencesMap};
-
-struct AppState {
-    config: PreferencesMap,
-}
 
 #[get("/")]
 async fn index() -> impl Responder {
@@ -38,9 +33,9 @@ async fn main() -> std::io::Result<()> {
         None => "1234".to_string(),
     };
 
-    HttpServer::new(|| {
+    HttpServer::new(move || {
         App::new()
-            .data(AppState {
+            .data(routes::AppState {
                 config: PreferencesMap::<String>::load(&config::APP_INFO, whoami::username())
                     .unwrap(),
             })
@@ -48,6 +43,7 @@ async fn main() -> std::io::Result<()> {
             .service(routes::link_route)
             .service(routes::notif)
             .service(routes::file_route)
+            .wrap(middleware::Logger::default())
     })
     .bind(format!(":{}", port))?
     .bind(get_addr(port))?

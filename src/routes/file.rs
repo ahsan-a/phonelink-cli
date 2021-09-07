@@ -1,14 +1,20 @@
+use crate::routes;
 use actix_multipart::Multipart;
-use actix_web::{post, web, Responder};
+use actix_web::{post, web};
 use futures::{StreamExt, TryStreamExt};
 use std::ffi::OsStr;
 use std::io::Write;
 use std::path::Path;
 
 #[post("/file")]
-pub async fn file_route(mut payload: Multipart) -> impl Responder {
+pub async fn file_route(mut payload: Multipart, data: web::Data<routes::AppState>) -> String {
     // iterate over multipart stream
-    let dir_path = "D://Users/Ahsan/Downloads/";
+    let config = &data.config;
+    let dir_path = match config.get("save_path") {
+        Some(x) => x,
+        None => return "Failed: invalid save path".to_string(),
+    };
+
     while let Ok(Some(mut field)) = payload.try_next().await {
         let content_type = field.content_disposition().unwrap();
 
@@ -32,7 +38,6 @@ pub async fn file_route(mut payload: Multipart) -> impl Responder {
                     i,
                     filext
                 );
-                println!("{}", filepath);
             }
         }
 
@@ -49,5 +54,5 @@ pub async fn file_route(mut payload: Multipart) -> impl Responder {
         }
     }
 
-    "Your file was saved successfully."
+    format!("Your file was saved successfully in {}.", dir_path)
 }

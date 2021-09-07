@@ -6,3 +6,8 @@ pub use notification::notif;
 
 mod file;
 pub use file::file_route;
+
+use preferences::PreferencesMap;
+pub struct AppState {
+    pub config: PreferencesMap<String>,
+}

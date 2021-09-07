@@ -60,4 +60,4 @@ iOS clients come in the form of shortcuts.
 -   [x] Create options menu
 -   [x] Add password header
 -   [x] Add power state controls
--   [x] Android client via Flutter
+-   [ ] Android client via Flutter

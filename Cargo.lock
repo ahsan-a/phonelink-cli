@@ -1471,6 +1471,7 @@ dependencies = [
  "notify-rust",
  "preferences",
  "sanitize-filename",
+ "system_shutdown",
  "webbrowser",
  "whoami",
 ]
@@ -2082,6 +2083,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a393066ed9010ebaed60b9eafa373d4b1baac186dd7e008555b0f702b51945b6"
 dependencies = [
  "unicode-xid 0.0.4",
+]
+
+[[package]]
+name = "system_shutdown"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "035e081d603551d8d78db27d2232913269c749ea67648c369100049820406a14"
+dependencies = [
+ "winapi 0.3.9",
 ]
 
 [[package]]

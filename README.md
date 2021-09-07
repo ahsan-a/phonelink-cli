@@ -19,4 +19,4 @@ A rewrite of [Phonelink for Windows Forms](https://github.com/ahsan-a/PhoneLink)
 -   [x] Add file receiving
 -   [x] Create options menu
 -   [x] Add password header
--   [ ] Add power state controls
+-   [x] Add power state controls

@@ -14,3 +14,6 @@ pub struct AppState {
 
 mod password;
 use password::check_password;
+
+mod power;
+pub use power::power_route;

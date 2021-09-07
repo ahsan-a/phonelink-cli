@@ -43,6 +43,7 @@ async fn main() -> std::io::Result<()> {
             .service(routes::link_route)
             .service(routes::notif)
             .service(routes::file_route)
+            .service(routes::power_route)
             .wrap(middleware::Logger::default())
     })
     .bind(format!(":{}", port))?

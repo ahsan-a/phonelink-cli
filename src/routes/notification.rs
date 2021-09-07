@@ -1,8 +1,13 @@
-use actix_web::{get, HttpRequest, Responder};
+use crate::routes::{check_password, AppState};
+use actix_web::{get, web, HttpRequest, Responder};
 use notify_rust::Notification;
 
 #[get("/notification")]
-pub async fn notif(req: HttpRequest) -> impl Responder {
+pub async fn notif(req: HttpRequest, data: web::Data<AppState>) -> impl Responder {
+    if !check_password(&req, &data).await {
+        return "Incorrect password.";
+    }
+
     let title = match req.headers().get("title") {
         None => return "An error occurred.",
         Some(x) => x.to_str().unwrap(),

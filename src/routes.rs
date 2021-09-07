@@ -11,3 +11,6 @@ use preferences::PreferencesMap;
 pub struct AppState {
     pub config: PreferencesMap<String>,
 }
+
+mod password;
+use password::check_password;

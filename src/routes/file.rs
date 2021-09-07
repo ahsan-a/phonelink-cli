@@ -1,13 +1,21 @@
-use crate::routes;
+use crate::routes::{check_password, AppState};
 use actix_multipart::Multipart;
-use actix_web::{post, web};
+use actix_web::{post, web, HttpRequest};
 use futures::{StreamExt, TryStreamExt};
 use std::ffi::OsStr;
 use std::io::Write;
 use std::path::Path;
 
 #[post("/file")]
-pub async fn file_route(mut payload: Multipart, data: web::Data<routes::AppState>) -> String {
+pub async fn file_route(
+    mut payload: Multipart,
+    data: web::Data<AppState>,
+    req: HttpRequest,
+) -> String {
+    if !check_password(&req, &data).await {
+        return "Incorrect password.".to_string();
+    }
+
     // iterate over multipart stream
     let config = &data.config;
     let dir_path = match config.get("save_path") {

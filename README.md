@@ -18,5 +18,5 @@ A rewrite of [Phonelink for Windows Forms](https://github.com/ahsan-a/PhoneLink)
 -   [x] Add notification receiving
 -   [x] Add file receiving
 -   [x] Create options menu
--   [ ] Add password header
+-   [x] Add password header
 -   [ ] Add power state controls

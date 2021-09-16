@@ -12,7 +12,7 @@ A rewrite of [Phonelink for Windows Forms](https://github.com/ahsan-a/PhoneLink)
 -   Use `phonelink config` to open the configuration menu.
 
 4. Find a phonelink client, or make your own. The only current clients are in the form of shortcuts for iOS.
-5. Find out how to make it start at startup on your operating system.
+5. (Optional) make the application start at startup. [Follow the guide for your OS here.](#start-at-startup)
 
 ## Clients
 
@@ -51,6 +51,22 @@ iOS clients come in the form of shortcuts.
 -   Path: `[IP]:[PORT]/power/[TYPE]`
 -   Method: `GET`
 -   Info: Your `[TYPE]` must be either: `shutdown`, `restart`, or `logout`.
+
+## Start at Startup
+
+### Windows
+
+1. Hold `Win+R` and type `shell:startup`.
+2. Create a new file named whatever you want, but ending in a `.vbs` extension.
+3. Paste the following code into the file. This code will make phonelink run at startup, but not show the terminal window:
+
+```vbs
+Set WshShell = CreateObject("WScript.Shell")
+WshShell.Run """C:\tools\phonelink-rs\phonelink-rs.exe""", 0 'Change this to your install location
+Set WshShell = Nothing
+```
+
+### As i don't use linux or macos, if anybody wants to, please make a pull request with instructions on running this app on startup.
 
 ## Roadmap
 

@@ -18,6 +18,6 @@ pub async fn link_route(
 
     match open(&url) {
         Ok(_) => format!("Successfully opened url {} on your computer.", url),
-        Err(_) => format!("Failed to open url {} on your computer.", url),
+        Err(e) => format!("Failed to open url {} on your computer: {}", url, e),
     }
 }

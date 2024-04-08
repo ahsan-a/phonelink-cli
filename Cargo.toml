@@ -1,13 +1,13 @@
 [package]
 name = "phonelink-rs"
-version = "0.1.0"
-edition = "2018"
+version = "0.1.1"
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 actix-web = "3" # web server
-webbrowser = "0.5.5" # open links
+webbrowser = "0.8" # open links
 notify-rust = "4" # send notifs
 actix-multipart = "0.3"
 futures = "0.3"
@@ -16,4 +16,4 @@ preferences = "^1.1.0"
 inquire = "~0"
 ansi_term = "0.12"
 whoami = "1"
-system_shutdown = "3"
+system_shutdown = "4"

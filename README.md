@@ -1,6 +1,6 @@
 # phonelink-rs
 
-A rewrite of [Phonelink for Windows Forms](https://github.com/ahsan-a/PhoneLink) written in Rust, with cross-platform support.
+A rewrite of [Phonelink for Windows Forms](https://github.com/ahsan-a/PhoneLink-legacy) written in Rust, with cross-platform support.
 
 ## Usage
 
